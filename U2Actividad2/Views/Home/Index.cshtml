@@ -1,0 +1,29 @@
+﻿@model U2Actividad2.Models.ViewModels.IndexViewModel
+@{
+    Layout = "Layout";
+}
+<section class="nav">
+    <h3>ABC de Razas</h3>
+    <nav>
+        <a href="~/">Todas</a>
+        @foreach (var letabc in Model.ABC)
+        {
+            <a href="~/@letabc">@letabc</a>
+        }
+        <a href="~/Paises">Listado por país</a>
+    </nav>
+</section>
+<section class="list">
+    @foreach (var raz in Model.RazasPerros)
+    {
+        <ul>
+            <li>
+            <a href="~/Perro/@raz.Nombre.Replace(" ","-")">
+                    <img src="~/imgs_perros/@(raz.Id)_0.jpg">
+                    @raz.Nombre
+                </a>
+            </li>
+        </ul>
+    }
+
+</section>

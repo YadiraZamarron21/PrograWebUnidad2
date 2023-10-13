@@ -42,7 +42,8 @@ namespace U2Actividad1.Controllers
         {
             AnimalesContext context = new();
             id = id.Replace("-"," ");
-            var animal = context.Especies.Include(x => x.IdClaseNavigation).Where(x => x.Especie.ToLower() == id.ToLower()).FirstOrDefault();
+            var animal = context.Especies.Include(x => x.IdClaseNavigation).
+                Where(x => x.Especie.ToLower() == id.ToLower()).FirstOrDefault();
 
             if (animal == null)
             {
